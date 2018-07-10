@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Sampe.Models.OrdemProducaoCopo>
+
+@{
+    ViewBag.Title = "Relatório";
+    Layout = "~/Views/Relatorio/LayoutRelatorio.cshtml";
+}
+
+<div class="container">
+    <table class="table table-bordered">
+        <tr>
+            <th>
+                <div class="col-md-4 ">
+                    <img class="img-responsive " src="~/img/marcanti.gif" style="height: 80px;width: 250px;">
+                </div>
+            </th>
+            <th>
+                <div class="col-md-4 text-center">
+                    <h2>Ordens de Produção </h2>
+                    <h4>KIT</h4>
+                    <h4>@ViewBag.dt1.ToString("dd/MM/yyyy") a @ViewBag.dt2.ToString("dd/MM/yyyy")</h4>
+                </div>
+            </th>
+            <th>
+                <div class="col-md-4">
+                    <img class="img-responsive " src="~/img/marca.png" style="margin:0 auto; width:180px; height:100px;">
+                </div>
+            </th>
+        </tr>
+    </table>
+
+
+    <table class="table">
+		<tr>
+			<th>
+				@Html.DisplayNameFor(model => model.CodigoIdentificador)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Expectativa.Produto)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Maquina.NomeMaquina)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.Data)
+			</th>
+			<th>
+				@Html.DisplayNameFor(model => model.MateriaPrima)
+			</th>
+
+			<th>
+				@Html.DisplayNameFor(model => model.TotalProduzidos)
+			</th>
+		</tr>
+
+        @foreach (var item in Model)
+        {
+		<tr>
+			<td>
+				@Html.DisplayFor(modelItem => item.CodigoIdentificador)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Expectativa.Produto)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Maquina.NomeMaquina)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.Data)
+			</td>
+			<td>
+				@Html.DisplayFor(modelItem => item.MateriaPrima)
+			</td>
+			
+			<td>
+				@Html.DisplayFor(modelItem => item.TotalProduzidos)
+			</td>
+			
+		</tr>
+        }
+
+    </table>
+</div>
