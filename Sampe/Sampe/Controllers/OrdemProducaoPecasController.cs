@@ -216,8 +216,9 @@ namespace Sampe.Controllers
 		// obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit([Bind(Include = "CodigoIdentificador,ExpectativaId,Data,MateriaPrima,MPLote,MPConsumo,ProdIncio,ProdFim,MaquinaId,Produto,CorPecaId,MasterLote,Fornecedor,TempAgua,NivelOleo,Galho,OffSpec,RefugoKg,UnidadesProduzidas,ContadorInicial,ContadorFinal")] OrdemProducaoPeca ordemProducaoPeca, bool Status)
+		public ActionResult Edit([Bind(Include = "CodigoIdentificador,ExpectativaId,Data,MateriaPrima,MPLote,MPConsumo,ProdIncio,ProdFim,MaquinaId,Produto,CorPecaId,MasterLote,Fornecedor,TempAgua,NivelOleo,Galho,OffSpec,RefugoKg,UnidadesProduzidas,ContadorInicial,OPnoMes,ContadorFinal")] OrdemProducaoPeca ordemProducaoPeca, bool Status)
 		{
+			//ordemProducaoPeca.OPnoMes = 
 			var a = Request.Form["Parada.HoraParada"];
 			var b = Request.Form["Parada.HoraRetorno"];
 			var c = Request.Form["Motivo"];

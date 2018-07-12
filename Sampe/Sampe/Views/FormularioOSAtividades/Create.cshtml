@@ -4,7 +4,7 @@
 }
 <script>
 	$(document).ready(function () {
-		$(".AtividadeOSId").click(function () {
+		$("#atvs").on("click", "li",function () {
 			//Váriavel para checar se já existe na lista
 			var chkRptTag = false;
 			var atv = $(this).text();
@@ -18,15 +18,16 @@
 			});
 
 			if (!chkRptTag) {
-                $("#lstTag").append("<li class='list-group-item'>" + $(this, "option:selected").text() + "<input type='checkbox' name='chkTags' id='chkTags' class='chkTags' checked='checked' value='" + $(this, "option:selected").val() + "'></li>");
+				$("#lstTag").append("<li class='list-group-item' value='" + $(this).val() +"'>" + $(this, "option:selected").text() + "<input type='checkbox' name='chkTags' id='chkTags' class='chkTags' checked='checked' value='" + $(this, "option:selected").val() + "'></li>");
                 $(this).remove();
-			} 
+			}
 		});
 
 
-		$('#lstTag').on('click', "li", function () {
-			$(this).remove();
-			//alert();
+		$('#lstTag').on('click', 'li', function () {
+
+			$("#atvs").append("<li class='list-group-item AtividadeOSId' name='AtividadeOSId' value='" + $(this).val() + "'>" + $(this).text() + "</li>");
+			$(this).remove();			
 			return false;
 		});
 
@@ -95,7 +96,7 @@
 						<label>Atividade Cadastradas</label>
 						<div class="form-group">					
 							<div class=" ms-lista">
-								<ul class="list-group list-group-flush">
+								<ul class="list-group list-group-flush" id="atvs">
 									@foreach (var item in ViewBag.AtividadeOSId)
 									{
 										<li class="list-group-item AtividadeOSId" name="AtividadeOSId" value="@item.AtividadeOSId">@item.NomeAtvOs</li>

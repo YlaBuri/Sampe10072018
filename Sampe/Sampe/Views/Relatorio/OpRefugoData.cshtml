@@ -59,9 +59,9 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Produto)
                 </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Data)
-                </td>
+				<td>
+					@item.Data.ToString("dd/MM/yyyy")
+				</td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ProdIncio)
                 </td>

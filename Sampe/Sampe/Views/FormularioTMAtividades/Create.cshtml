@@ -4,11 +4,11 @@
 }
 <script>
 	$(document).ready(function () {
-		$(".AtividadeTMId").click(function () {
+		$("#atvs").on('click','li',function () {
 			//Váriavel para checar se já existe na lista
 			var chkRptTag = false;
-
 			var atv = $(this).text();
+
 			$('#lstTag li').each(function () {
 				haveSomeLi = true;
 				var current = $(this).text();
@@ -18,16 +18,17 @@
 			});
 
 			if (!chkRptTag) {
-                $("#lstTag").append("<li class='list-group-item'>" + $(this, "option:selected").text() + "<input type='checkbox' name='chkTags' id='chkTags' class='chkTags' checked='checked' value='" + $(this, "option:selected").val() + "'></li>");
+				$("#lstTag").append("<li class='list-group-item ' value='" + $(this).val() +"'>" + $(this, "option:selected").text() + "<input type='checkbox' name='chkTags' id='chkTags' class='chkTags' checked='checked' value='" + $(this, "option:selected").val() + "'></li>");
                 $(this).remove();
 			} 
 		});
 
 
-		$('#lstTag').on('click', "li", function () {
+		$('#lstTag').on('click','li', function () {
 			$(this).remove();
+			$("#atvs").append("<li class='list-group-item AtividadeTMId' name='AtividadeTMId' value='"+$(this).val()+"'>"+$(this).text()+"</li>");
 			//alert();
-			return false;
+			//return false;
 		});
 
 	});
@@ -102,7 +103,7 @@
 					<div class="col-lg-6 col-sm-12">
 						<label>Atividades Cadastradas</label>
 						<div class=" ms-lista">
-							<ul class="list-group list-group-flush">
+							<ul class="list-group list-group-flush" id="atvs">
 								@foreach (var item in ViewBag.AtividadeTMId)
 								{
 									<li class="list-group-item AtividadeTMId" name="AtividadeTMId" value="@item.AtividadeTMId">@item.NomeAtvTm</li>

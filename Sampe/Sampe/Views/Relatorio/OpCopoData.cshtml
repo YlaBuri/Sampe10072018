@@ -16,7 +16,7 @@
             <th>
                 <div class="col-md-4 text-center">
                     <h2>Ordens de Produção </h2>
-                    <h4>KIT</h4>
+                    <h4>COPO</h4>
                     <h4>@ViewBag.dt1.ToString("dd/MM/yyyy") a @ViewBag.dt2.ToString("dd/MM/yyyy")</h4>
                 </div>
             </th>
@@ -65,7 +65,7 @@
 				@Html.DisplayFor(modelItem => item.Maquina.NomeMaquina)
 			</td>
 			<td>
-				@Html.DisplayFor(modelItem => item.Data)
+				@item.Data.ToString("dd/MM/yyyy")
 			</td>
 			<td>
 				@Html.DisplayFor(modelItem => item.MateriaPrima)

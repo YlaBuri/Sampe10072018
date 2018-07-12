@@ -179,7 +179,7 @@ namespace Sampe.Controllers
 		// obter mais detalhes, consulte https://go.microsoft.com/fwlink/?LinkId=317598.
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Edit([Bind(Include = "OrdemProducaoRefugoId,Produto,Data,UsuarioId,ProdIncio,ProdFim,Obs")] OrdemProducaoRefugo ordemProducaoRefugo, bool Status)
+		public ActionResult Edit([Bind(Include = "OrdemProducaoRefugoId,Produto,Data,UsuarioId,ProdIncio,OPnoMes,ProdFim,Obs")] OrdemProducaoRefugo ordemProducaoRefugo, bool Status)
 		{
 			ordemProducaoRefugo.Status = Status;
 			var a = Request.Form["Material"];
