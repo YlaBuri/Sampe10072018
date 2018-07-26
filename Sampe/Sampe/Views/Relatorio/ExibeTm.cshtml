@@ -127,9 +127,10 @@
         <div class="container">
             @foreach (var x in item.FormularioTMAtividades)
             {
-                <p>@Html.DisplayFor(modelItem => x.StatusTM) @x.AtividadeTM.NomeAtvTm</p><br />
+                <p>@Html.DisplayFor(modelItem => x.StatusTM) @x.AtividadeTM.NomeAtvTm</p>
             }
         </div>
+		<br />
         <p>@Html.DisplayFor(model => item.Status) Validação do Supervisor</p>
     }
 </div>
